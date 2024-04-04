@@ -6,7 +6,13 @@ import { addRequest, delRequest, editRequest, pageRequest } from './api';
 export type FirstRow = {
   id?: number;
   name?: string;
-  type?: number;
+  description?: string;
+  learners?: number;
+  parents?: [];
+  children?: [];
+  learningexperience?: [];
+  createAt?: Date;
+  updateAt?: Date;
 };
 
 /** 定义一个CrudOptions生成器方法 */
@@ -27,7 +33,7 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
       // 这里定义两个字段
       columns: {
         name: {
-          title: '姓名',
+          title: '技术',
           type: 'text', // 字段类型，fs会根据字段类型，生成出一些默认配置
           search: { show: true },
           column: {
@@ -36,16 +42,118 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
             width: 200
           }
         },
-        type: {
-          title: '类型',
+        description: {
+          title: '描述',
+          type: 'text', // 字段类型，fs会根据字段类型，生成出一些默认配置
+          search: { show: true },
+          column: {
+            // 表格列的一些配置
+            resizable: true,
+            width: 200
+          }
+        },
+        learners: {
+          title: '学习人数',
+          type: 'number',
+          search: { show: true },
+          column: {
+            // 表格列的一些配置
+            resizable: true,
+            sortable: true
+          }
+        },
+        parents: {
+          title: '父级',
           type: 'dict-select',
+          search: { show: true },
+          form: {
+            title: '父级',
+            value: [],
+            component: {
+              multiple: true
+            },
+            rules: [{ required: true, message: '请选择一个选项' }]
+          },
           dict: dict({
             data: [
-              { value: 1, label: '开始' },
-              { value: 0, label: '停止' }
+              { value: 'sz', label: '深圳', color: 'success' },
+              { value: 'gz', label: '广州' },
+              { value: 'wh', label: '武汉' },
+              { value: 'sh', label: '上海' },
+              { value: 'hz', label: '杭州' },
+              { value: 'bj', label: '北京', color: 'danger' }
             ]
-          })
+          }),
+          column: {
+            resizable: true,
+            sortable: true,
+            component: {
+              color: 'auto', // 自动染色
+              defaultLabel: '未知城市' // 无数据字典时的默认文本
+            }
+          }
+        },
+        children: {
+          title: '子级',
+          type: 'dict-select',
+          search: { show: true },
+          form: {
+            title: '子级',
+            value: [],
+            component: {
+              multiple: true
+            },
+            rules: [{ required: true, message: '请选择一个选项' }]
+          },
+          dict: dict({
+            data: [
+              { value: 'sz', label: '深圳', color: 'success' },
+              { value: 'gz', label: '广州' },
+              { value: 'wh', label: '武汉' },
+              { value: 'sh', label: '上海' },
+              { value: 'hz', label: '杭州' },
+              { value: 'bj', label: '北京', color: 'danger' }
+            ]
+          }),
+          column: {
+            resizable: true,
+            sortable: true,
+            component: {
+              color: 'auto', // 自动染色
+              defaultLabel: '未知城市' // 无数据字典时的默认文本
+            }
+          }
+        },
+        createAt: {
+          title: '创建时间',
+          type: 'datetime',
+          column: {
+            sortable: true
+          },
+          add: {}
+        },
+        updateAt: {
+          title: '更新时间',
+          type: 'datetime',
+          column: {
+            sortable: true
+          },
+          add: {}
         }
+        // type: {
+        //   title: '类型',
+        //   type: 'dict-select',
+        //   dict: dict({
+        //     data: [
+        //       { value: 1, label: '开始' },
+        //       { value: 0, label: '停止' }
+        //     ]
+        //   })
+        // }
+      },
+      form: {
+        col: { span: 24 },
+        wrapper: {}
       }
     }
   };
