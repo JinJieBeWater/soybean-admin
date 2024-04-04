@@ -153,7 +153,18 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
       },
       form: {
         col: { span: 24 },
-        wrapper: {}
+        wrapper: {
+          is: 'n-modal',
+          headerStyle: {
+            maxWidth: '100vw'
+          },
+          contentStyle: {
+            maxWidth: '100vw'
+          },
+          footerStyle: {
+            maxWidth: '100vw'
+          }
+        }
       }
     }
   };

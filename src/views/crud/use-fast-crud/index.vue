@@ -39,8 +39,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="relative min-h-500px flex-col-stretch gap-16px overflow-hidden !p-0">
-    <FsPage>
+  <div class="relative m-2 min-h-500px flex-col-stretch gap-16px overflow-hidden !p-0">
+    <FsPage class="filter-drop-shadow-sm">
       <FsCrud ref="crudRef" v-bind="crudBinding" />
     </FsPage>
   </div>
