@@ -41,6 +41,10 @@ declare namespace API {
     description?: string;
   };
 
+  type findOneTechnologyParams = {
+    id: string;
+  };
+
   type LearningExperience = {
     id: string;
     content: string;
@@ -53,6 +57,10 @@ declare namespace API {
     isDeleted: boolean;
     createdAt: string;
     upDatedAt: string;
+  };
+
+  type removeTechnologyParams = {
+    id: string;
   };
 
   type Session = {
@@ -103,24 +111,16 @@ declare namespace API {
     upDatedAt: string;
   };
 
-  type TechnologyControllerFindOneParams = {
-    id: string;
-  };
-
-  type TechnologyControllerRemoveParams = {
-    id: string;
-  };
-
-  type TechnologyControllerUpdateParams = {
-    id: string;
-  };
-
   type TechnologyRelation = {
     parent: Technology;
     parentsId: number;
     children: Technology;
     childrenId: number;
     assignedAt: string;
+  };
+
+  type updateTechnologyParams = {
+    id: string;
   };
 
   type User = {

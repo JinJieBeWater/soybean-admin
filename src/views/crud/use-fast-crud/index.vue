@@ -2,7 +2,6 @@
 import { defineComponent, onMounted } from 'vue';
 import type { OnExposeContext } from '@fast-crud/fast-crud';
 import { useFs } from '@fast-crud/fast-crud';
-import { technologyControllerFindAll } from '@/api/multi-learner/technology';
 import type { FirstRow } from './crud';
 import createCrudOptions from './crud';
 
@@ -30,8 +29,6 @@ export default defineComponent({
     // 页面打开后获取列表数据
     onMounted(async () => {
       crudExpose.doRefresh();
-      const { data } = await technologyControllerFindAll();
-      console.log(data);
     });
     return {
       crudBinding,

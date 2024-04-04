@@ -1,8 +1,9 @@
+// @ts-ignore
 /* eslint-disable */
 import { request } from '@/service/request';
 
 /** 此处后端没有提供注释 GET /technology */
-export async function technologyControllerFindAll(options?: { [key: string]: any }) {
+export async function findAllTechnology(options?: { [key: string]: any }) {
   return request<any>('/technology', {
     method: 'GET',
     ...(options || {}),
@@ -10,7 +11,7 @@ export async function technologyControllerFindAll(options?: { [key: string]: any
 }
 
 /** 此处后端没有提供注释 POST /technology */
-export async function technologyControllerCreate(
+export async function createTechnology(
   body: API.CreateTechnologyDto,
   options?: { [key: string]: any },
 ) {
@@ -25,9 +26,9 @@ export async function technologyControllerCreate(
 }
 
 /** 此处后端没有提供注释 GET /technology/${param0} */
-export async function technologyControllerFindOne(
+export async function findOneTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.TechnologyControllerFindOneParams,
+  params: API.findOneTechnologyParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
@@ -39,9 +40,9 @@ export async function technologyControllerFindOne(
 }
 
 /** 此处后端没有提供注释 DELETE /technology/${param0} */
-export async function technologyControllerRemove(
+export async function removeTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.TechnologyControllerRemoveParams,
+  params: API.removeTechnologyParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
@@ -53,9 +54,9 @@ export async function technologyControllerRemove(
 }
 
 /** 此处后端没有提供注释 PATCH /technology/${param0} */
-export async function technologyControllerUpdate(
+export async function updateTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
-  params: API.TechnologyControllerUpdateParams,
+  params: API.updateTechnologyParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;

@@ -7,7 +7,7 @@ const basicConfig = {
 const importList = [
   {
     // 接口目标路径
-    schemaPath: 'http://localhost:3003/api-json',
+    schemaPath: 'http://localhost:9009/api-json',
     // 生成文件夹名称
     projectName: 'multi-learner',
     requestLibPath: "import {request} from '@/service/request'"
