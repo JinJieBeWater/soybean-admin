@@ -39,7 +39,8 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           column: {
             // 表格列的一些配置
             resizable: true,
-            width: 200
+            width: 150,
+            fixed: 'left'
           }
         },
         description: {
@@ -48,8 +49,7 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           search: { show: true },
           column: {
             // 表格列的一些配置
-            resizable: true,
-            width: 200
+            resizable: true
           }
         },
         learners: {
@@ -58,8 +58,7 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           search: { show: true },
           column: {
             // 表格列的一些配置
-            resizable: true,
-            sortable: true
+            resizable: true
           }
         },
         parents: {
@@ -128,17 +127,17 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           title: '创建时间',
           type: 'datetime',
           column: {
-            sortable: true
-          },
-          add: {}
+            resizable: true,
+            show: false
+          }
         },
         updateAt: {
           title: '更新时间',
           type: 'datetime',
           column: {
-            sortable: true
-          },
-          add: {}
+            resizable: true,
+            show: false
+          }
         }
         // type: {
         //   title: '类型',
@@ -150,6 +149,10 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
         //     ]
         //   })
         // }
+      },
+      rowHandle: {
+        fixed: 'right',
+        width: '150px'
       },
       form: {
         col: { span: 24 },
