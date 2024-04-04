@@ -20,9 +20,6 @@ export type FirstRow = {
 export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRow>): CreateCrudOptionsRet<FirstRow> {
   return {
     crudOptions: {
-      container: {
-        is: 'fs-layout-card'
-      },
       // 在这里自定义你的crudOptions配置
       request: {
         pageRequest,
@@ -149,25 +146,6 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
         //     ]
         //   })
         // }
-      },
-      rowHandle: {
-        fixed: 'right',
-        width: '150px'
-      },
-      form: {
-        col: { span: 24 },
-        wrapper: {
-          is: 'n-modal',
-          headerStyle: {
-            maxWidth: '100vw'
-          },
-          contentStyle: {
-            maxWidth: '100vw'
-          },
-          footerStyle: {
-            maxWidth: '100vw'
-          }
-        }
       }
     }
   };
