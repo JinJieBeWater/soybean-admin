@@ -96,6 +96,7 @@ export type FlatResponseData<T = any, ResponseData = any> =
 
 export interface FlatRequestInstance<S = Record<string, unknown>, ResponseData = any> extends RequestInstanceCommon<S> {
   <T = any, R extends ResponseType = 'json'>(
+    url: string,
     config: CustomAxiosRequestConfig<R>
   ): Promise<FlatResponseData<MappedType<R, T>, ResponseData>>;
 }

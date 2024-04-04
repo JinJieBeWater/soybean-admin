@@ -148,9 +148,9 @@ export function createFlatRequest<ResponseData = any, State = Record<string, unk
   const flatRequest: FlatRequestInstance<State, ResponseData> = async function flatRequest<
     T = any,
     R extends ResponseType = 'json'
-  >(config: CustomAxiosRequestConfig) {
+  >(url: string, config: CustomAxiosRequestConfig) {
     try {
-      const response: AxiosResponse<ResponseData> = await instance(config);
+      const response: AxiosResponse<ResponseData> = await instance({ ...config, url });
 
       const responseType = response.config?.responseType || 'json';
 
