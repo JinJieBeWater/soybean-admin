@@ -68,15 +68,6 @@ export const generatedRoutes: GeneratedRoute[] = [
           title: 'crud_use-fast-crud',
           i18nKey: 'route.crud_use-fast-crud'
         }
-      },
-      {
-        name: 'crud_use-native',
-        path: '/crud/use-native',
-        component: 'view.crud_use-native',
-        meta: {
-          title: 'crud_use-native',
-          i18nKey: 'route.crud_use-native'
-        }
       }
     ]
   },

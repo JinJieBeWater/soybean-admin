@@ -27,7 +27,6 @@ declare module "@elegant-router/types" {
     "about": "/about";
     "crud": "/crud";
     "crud_use-fast-crud": "/crud/use-fast-crud";
-    "crud_use-native": "/crud/use-native";
     "function": "/function";
     "function_hide-child": "/function/hide-child";
     "function_hide-child_one": "/function/hide-child/one";
@@ -121,7 +120,6 @@ declare module "@elegant-router/types" {
     | "login"
     | "about"
     | "crud_use-fast-crud"
-    | "crud_use-native"
     | "function_hide-child_one"
     | "function_hide-child_three"
     | "function_hide-child_two"

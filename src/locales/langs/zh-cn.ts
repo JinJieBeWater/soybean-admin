@@ -166,8 +166,7 @@ const local: App.I18n.Schema = {
     exception_404: '404',
     exception_500: '500',
     crud: 'crud示例',
-    'crud_use-fast-crud': '使用fast-crud',
-    'crud_use-native': '使用原生'
+    'crud_use-fast-crud': '使用fast-crud'
   },
   page: {
     login: {
