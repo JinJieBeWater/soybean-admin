@@ -66,3 +66,18 @@ export async function updateTechnology(
     ...(options || {}),
   });
 }
+
+/** 此处后端没有提供注释 GET /technology/pagination */
+export async function paginationTechnology(
+  // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
+  params: API.paginationTechnologyParams,
+  options?: { [key: string]: any },
+) {
+  return request<API.PaginationVo & { records?: API.Technology[] }>('/technology/pagination', {
+    method: 'GET',
+    params: {
+      ...params,
+    },
+    ...(options || {}),
+  });
+}

@@ -1,18 +1,21 @@
 import type { AddReq, DelReq, EditReq, UserPageQuery, UserPageRes } from '@fast-crud/fast-crud';
 import _ from 'lodash-es';
-import { findAllTechnology } from '@/api/multi-learner/technology';
+import { paginationTechnology } from '@/api/multi-learner/technology';
 
 /** 此处本地方式模拟远程接口，实际开发，你需要替换成你的后台请求 */
 const records = [{ id: 1, name: 'Hello World', type: 1 }];
-export const pageRequest = async (_query: UserPageQuery): Promise<UserPageRes> => {
+export const pageRequest = async (query: UserPageQuery): Promise<UserPageRes> => {
   // return {
   //   records: _.cloneDeep(records), // 此处跟fs所需字段一致，无需转换
   //   offset: 0, // 后续会在transformRes里面做转化，转换为currentPage
   //   limit: 20, // 后续会在transformRes里面做转化，转换为pageSize
   //   total: records.length
   // };
-  const { data } = await findAllTechnology();
-  return data;
+  console.log('_query', query);
+  const { data } = await paginationTechnology({ ...query.page });
+  console.log('findAllTechnology', data);
+
+  return data!;
 };
 export const editRequest = async ({ form, row }: EditReq) => {
   const target = _.find(records, item => {

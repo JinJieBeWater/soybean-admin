@@ -82,7 +82,6 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           }),
           column: {
             resizable: true,
-            sortable: true,
             component: {
               color: 'auto', // 自动染色
               defaultLabel: '未知城市' // 无数据字典时的默认文本
@@ -113,7 +112,6 @@ export default function ({ crudExpose, context }: CreateCrudOptionsProps<FirstRo
           }),
           column: {
             resizable: true,
-            sortable: true,
             component: {
               color: 'auto', // 自动染色
               defaultLabel: '未知城市' // 无数据字典时的默认文本

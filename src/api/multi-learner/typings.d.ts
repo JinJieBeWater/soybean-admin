@@ -12,32 +12,43 @@ declare namespace API {
     scope?: string;
     id_token?: string;
     session_state?: string;
+  };
+
+  type AccountRelations = {
     user: User;
   };
 
   type Comment = {
     id: string;
     content: string;
-    learningexperience: LearningExperience;
     LearningExperienceId: string;
     TechnicalLearnerId: string;
-    author: TechnicalLearner;
     isDeleted: boolean;
-    parents: CommentRelation[];
-    children: CommentRelation[];
     createdAt: string;
   };
 
   type CommentRelation = {
-    parent: Comment;
     parentsId: string;
-    children: Comment;
     childrenId: string;
     createdAt: string;
   };
 
+  type CommentRelationRelations = {
+    parent: Comment;
+    children: Comment;
+  };
+
+  type CommentRelations = {
+    learningexperience: LearningExperience;
+    author: TechnicalLearner;
+    parents: CommentRelation[];
+    children: CommentRelation[];
+  };
+
   type CreateTechnologyDto = {
+    /** The name of the technology */
     name: string;
+    /** The description of the technology */
     description?: string;
   };
 
@@ -49,14 +60,35 @@ declare namespace API {
     id: string;
     content: string;
     TechnicalLearnerId: string;
-    author: TechnicalLearner;
-    tags: TagOnLearningExperience[];
-    comment: Comment[];
-    technology: Technology[];
     isPublished: boolean;
     isDeleted: boolean;
     createdAt: string;
     upDatedAt: string;
+  };
+
+  type LearningExperienceRelations = {
+    author: TechnicalLearner;
+    tags: TagOnLearningExperience[];
+    comment: Comment[];
+    technology: Technology[];
+  };
+
+  type paginationTechnologyParams = {
+    /** 当前页码 */
+    currentPage: number;
+    /** 每页条数 */
+    pageSize: number;
+  };
+
+  type PaginationVo = {
+    /** 数据 */
+    records: string[];
+    /** 当前页码 */
+    currentPage: number;
+    /** 每页条数 */
+    pageSize: number;
+    /** 总条数 */
+    total: number;
   };
 
   type removeTechnologyParams = {
@@ -68,34 +100,46 @@ declare namespace API {
     sessionToken: string;
     userId: string;
     expires: string;
+  };
+
+  type SessionRelations = {
     user: User;
   };
 
   type Tag = {
     id: number;
     name: string;
-    tagsonlearningexperiences: TagOnLearningExperience[];
     createdAt: string;
   };
 
   type TagOnLearningExperience = {
     tagId: number;
-    tag: Tag;
     learningexperienceId: string;
-    learningexperience: LearningExperience;
     assignedAt: string;
+  };
+
+  type TagOnLearningExperienceRelations = {
+    tag: Tag;
+    learningexperience: LearningExperience;
+  };
+
+  type TagRelations = {
+    tagsonlearningexperiences: TagOnLearningExperience[];
   };
 
   type TechnicalLearner = {
     id: string;
-    user: User;
     userId: string;
     name: string;
     description?: string;
-    learningExperience: LearningExperience[];
-    comments: Comment[];
     createdAt: string;
     upDatedAt: string;
+  };
+
+  type TechnicalLearnerRelations = {
+    user: User;
+    learningExperience: LearningExperience[];
+    comments: Comment[];
     technology: Technology[];
   };
 
@@ -103,20 +147,26 @@ declare namespace API {
     id: number;
     name: string;
     description?: string;
-    learners: TechnicalLearner[];
-    parents: TechnologyRelation[];
-    children: TechnologyRelation[];
-    learningexperience: LearningExperience[];
     createdAt: string;
     upDatedAt: string;
   };
 
   type TechnologyRelation = {
-    parent: Technology;
     parentsId: number;
-    children: Technology;
     childrenId: number;
     assignedAt: string;
+  };
+
+  type TechnologyRelationRelations = {
+    parent: Technology;
+    children: Technology;
+  };
+
+  type TechnologyRelations = {
+    learners: TechnicalLearner[];
+    parents: TechnologyRelation[];
+    children: TechnologyRelation[];
+    learningexperience: LearningExperience[];
   };
 
   type updateTechnologyParams = {
@@ -130,10 +180,13 @@ declare namespace API {
     emailVerified?: string;
     image?: string;
     password?: string;
+    createdAt: string;
+  };
+
+  type UserRelations = {
     accounts: Account[];
     sessions: Session[];
     TechnicalLearner: TechnicalLearner[];
-    createdAt: string;
   };
 
   type VerificationToken = {
@@ -141,4 +194,6 @@ declare namespace API {
     token: string;
     expires: string;
   };
+
+  type VerificationTokenRelations = {};
 }
