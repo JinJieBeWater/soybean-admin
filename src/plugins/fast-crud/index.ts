@@ -82,7 +82,8 @@ function install(app: App, _options: FsSetupOpts = {}) {
           }
         }
       };
-    }
+    },
+    logger: { off: { tableColumns: false } }
   });
 }
 

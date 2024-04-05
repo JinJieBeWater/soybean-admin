@@ -7,7 +7,7 @@ import { $t } from '@/locales';
 import { handleRefreshToken } from './shared';
 
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
-const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
+const { baseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
 
 interface InstanceState {
   /** whether the request is refreshing token */
@@ -127,9 +127,9 @@ export const request = createFlatRequest<App.Service.Response, InstanceState>(
   }
 );
 
-export const demoRequest = createRequest<App.Service.DemoResponse>(
+export const normalRequest = createRequest<App.Service.DemoResponse>(
   {
-    baseURL: otherBaseURL.demo
+    baseURL
   },
   {
     async onRequest(config) {

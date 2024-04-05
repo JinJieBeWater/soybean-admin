@@ -53,7 +53,7 @@ declare namespace API {
   };
 
   type findOneTechnologyParams = {
-    id: string;
+    id: number;
   };
 
   type LearningExperience = {
@@ -92,7 +92,14 @@ declare namespace API {
   };
 
   type removeTechnologyParams = {
-    id: string;
+    id: number;
+  };
+
+  type ResultVo = {
+    /** 状态码 */
+    code: number;
+    /** 状态描述 */
+    msg: string;
   };
 
   type Session = {
@@ -175,7 +182,7 @@ declare namespace API {
   };
 
   type updateTechnologyParams = {
-    id: string;
+    id: number;
   };
 
   type User = {

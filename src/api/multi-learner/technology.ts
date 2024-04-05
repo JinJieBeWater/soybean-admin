@@ -7,7 +7,7 @@ export async function createTechnology(
   body: API.CreateTechnologyDto,
   options?: { [key: string]: any },
 ) {
-  return request<API.Technology>('/technology', {
+  return request<API.ResultVo & { records?: API.Technology[] }>('/technology', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ export async function findOneTechnology(
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<API.Technology>(`/technology/${param0}`, {
+  return request<API.ResultVo & { records?: API.Technology[] }>(`/technology/${param0}`, {
     method: 'GET',
     params: { ...queryParams },
     ...(options || {}),
@@ -38,7 +38,7 @@ export async function removeTechnology(
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<API.Technology>(`/technology/${param0}`, {
+  return request<API.ResultVo & { records?: API.Technology[] }>(`/technology/${param0}`, {
     method: 'DELETE',
     params: { ...queryParams },
     ...(options || {}),
@@ -53,7 +53,7 @@ export async function updateTechnology(
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<API.Technology>(`/technology/${param0}`, {
+  return request<API.ResultVo & { records?: API.Technology[] }>(`/technology/${param0}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export async function paginationTechnology(
   params: API.paginationTechnologyParams,
   options?: { [key: string]: any },
 ) {
-  return request<API.PaginationVo & { records?: API.Technology[] }>('/technology/pagination', {
+  return request<API.ResultVo & { data?: API.PaginationVo }>('/technology/pagination', {
     method: 'GET',
     params: {
       ...params,

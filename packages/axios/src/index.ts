@@ -112,9 +112,10 @@ export function createRequest<ResponseData = any, State = Record<string, unknown
   const { instance, opts, cancelRequest, cancelAllRequest } = createCommonRequest<ResponseData>(axiosConfig, options);
 
   const request: RequestInstance<State> = async function request<T = any, R extends ResponseType = 'json'>(
+    url: string,
     config: CustomAxiosRequestConfig
   ) {
-    const response: AxiosResponse<ResponseData> = await instance(config);
+    const response: AxiosResponse<ResponseData> = await instance({ ...config, url });
 
     const responseType = response.config?.responseType || 'json';
 

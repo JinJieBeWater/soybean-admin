@@ -77,7 +77,10 @@ export interface RequestInstanceCommon<T> {
 
 /** The request instance */
 export interface RequestInstance<S = Record<string, unknown>> extends RequestInstanceCommon<S> {
-  <T = any, R extends ResponseType = 'json'>(config: CustomAxiosRequestConfig<R>): Promise<MappedType<R, T>>;
+  <T = any, R extends ResponseType = 'json'>(
+    url: string,
+    config: CustomAxiosRequestConfig<R>
+  ): Promise<MappedType<R, T>>;
 }
 
 export type FlatResponseSuccessData<T = any> = {
