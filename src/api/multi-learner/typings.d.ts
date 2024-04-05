@@ -169,6 +169,11 @@ declare namespace API {
     learningexperience: LearningExperience[];
   };
 
+  type UpdateTechnologyDto = {
+    name?: string;
+    description?: string;
+  };
+
   type updateTechnologyParams = {
     id: string;
   };

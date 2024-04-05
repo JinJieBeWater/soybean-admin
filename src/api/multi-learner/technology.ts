@@ -2,20 +2,12 @@
 /* eslint-disable */
 import { request } from '@/service/request';
 
-/** 此处后端没有提供注释 GET /technology */
-export async function findAllTechnology(options?: { [key: string]: any }) {
-  return request<any>('/technology', {
-    method: 'GET',
-    ...(options || {}),
-  });
-}
-
-/** 此处后端没有提供注释 POST /technology */
+/** 创建 POST /technology */
 export async function createTechnology(
   body: API.CreateTechnologyDto,
   options?: { [key: string]: any },
 ) {
-  return request<any>('/technology', {
+  return request<API.Technology>('/technology', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -25,49 +17,54 @@ export async function createTechnology(
   });
 }
 
-/** 此处后端没有提供注释 GET /technology/${param0} */
+/** 单个查询 GET /technology/${param0} */
 export async function findOneTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
   params: API.findOneTechnologyParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<any>(`/technology/${param0}`, {
+  return request<API.Technology>(`/technology/${param0}`, {
     method: 'GET',
     params: { ...queryParams },
     ...(options || {}),
   });
 }
 
-/** 此处后端没有提供注释 DELETE /technology/${param0} */
+/** 删除 DELETE /technology/${param0} */
 export async function removeTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
   params: API.removeTechnologyParams,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<any>(`/technology/${param0}`, {
+  return request<API.Technology>(`/technology/${param0}`, {
     method: 'DELETE',
     params: { ...queryParams },
     ...(options || {}),
   });
 }
 
-/** 此处后端没有提供注释 PATCH /technology/${param0} */
+/** 修改 PATCH /technology/${param0} */
 export async function updateTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
   params: API.updateTechnologyParams,
+  body: API.UpdateTechnologyDto,
   options?: { [key: string]: any },
 ) {
   const { id: param0, ...queryParams } = params;
-  return request<any>(`/technology/${param0}`, {
+  return request<API.Technology>(`/technology/${param0}`, {
     method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
     params: { ...queryParams },
+    data: body,
     ...(options || {}),
   });
 }
 
-/** 此处后端没有提供注释 GET /technology/pagination */
+/** 分页查询 GET /technology/pagination */
 export async function paginationTechnology(
   // 叠加生成的Param类型 (非body参数swagger默认没有生成对象)
   params: API.paginationTechnologyParams,
