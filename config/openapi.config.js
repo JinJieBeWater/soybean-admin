@@ -10,7 +10,7 @@ const importList = [
     schemaPath: 'http://localhost:9009/api-json',
     // 生成文件夹名称
     projectName: 'multi-learner',
-    requestLibPath: "import {request} from '@/service/request'"
+    requestLibPath: "import {normalRequest as request} from '@/service/request'"
   }
 ];
 // 接口生成函数

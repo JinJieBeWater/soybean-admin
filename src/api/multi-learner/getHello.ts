@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import { request } from '@/service/request';
+import { normalRequest as request } from '@/service/request';
 
 /** 此处后端没有提供注释 GET / */
 export async function getHello(options?: { [key: string]: any }) {

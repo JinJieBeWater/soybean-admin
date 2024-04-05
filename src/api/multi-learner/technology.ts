@@ -1,6 +1,6 @@
 // @ts-ignore
 /* eslint-disable */
-import { request } from '@/service/request';
+import { normalRequest as request } from '@/service/request';
 
 /** 创建 POST /technology */
 export async function createTechnology(
